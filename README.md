@@ -12,6 +12,7 @@ Ao finalizar o teste, submeta um pull request para o repositório e nosso time s
 Tarefas
 [ ] Endpoint que liste as moedas do sistema e o saldo de um usuário de cada uma e seu valor de conversão como no exemplo abaixo:
 Importante: Listar TODAS as moedas cadastradas no sistema, mesmo as que o usuário não possui saldo.
+
 {
     "currencies": [
         {
@@ -36,6 +37,7 @@ Importante: Listar TODAS as moedas cadastradas no sistema, mesmo as que o usuár
         }
     ]
 }
+
 [ ] Endpoint para realizar uma conversão de moedas (usar como referência o menu EXCHANGE do template https://projects.invisionapp.com/share/B7WLCSPJTPY#/screens/411208916)
 Requisitos
 [ ] Todos os endpoints só podem ser acessados por usuários autenticados.
