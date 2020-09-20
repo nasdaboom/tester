@@ -14,6 +14,16 @@ class Currencies extends Model
     protected $table = 'currencies';
 
     /**
+     * The users that belong to the currencies.
+     */
+    public function users()
+    {
+        return $this->belongsToMany(
+            User::class, 'users_balance', 'currency_id', 'user_id'
+        );
+    }
+
+    /**
      * Get the conversion record associated with the currency.
      */
     public function conversion()
@@ -39,5 +49,16 @@ class Currencies extends Model
         $conversion->btc_value = $arrayConv['btc_value'];
         $conversion->usd_value = $arrayConv['usd_value'];
         $conversion->save();
+    }
+
+    /**
+     * Get all currencies id's
+     * @return array
+     */
+    public static function currenciesId()
+    {
+        return self::all()
+            ->pluck('id')
+            ->toArray();
     }
 }

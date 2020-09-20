@@ -46,10 +46,24 @@ class User extends Authenticatable
      */
     public function register($request)
     {
-        return self::create([
+        $user = self::create([
             "name"         => $request->name,
             "email"        => $request->email,
             "password"     => Hash::make($request->password)
         ]);
+
+        $user->currencies()->sync(Currencies::currenciesId());
+
+        return $user;
+    }
+
+    /**
+     * The currencies that belong to the users.
+     */
+    public function currencies()
+    {
+        return $this->belongsToMany(
+            Currencies::class, 'users_balance', 'user_id', 'currency_id'
+        )->withPivot('balance');
     }
 }
