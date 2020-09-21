@@ -16,6 +16,7 @@ class RunPassportCommands extends Migration
     {
         Artisan::call('passport:install', array('--force' => null));
         Artisan::call('passport:keys', array('--force' => null));
+        Artisan::call('config:cache');
     }
 
     /**

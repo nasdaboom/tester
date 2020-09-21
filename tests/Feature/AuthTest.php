@@ -19,7 +19,7 @@ class AuthTest extends TestCase
     {
         $email = $this->faker->email;
 
-        $register = $this->postJson('/api/register', [
+        $register = $this->post('/api/register', [
             'name' => $this->faker->name,
             'email' => $email,
             'password' => 'qweqwe'
@@ -27,7 +27,7 @@ class AuthTest extends TestCase
 
         $register->assertStatus(201);
 
-        $login = $this->postJson('/api/login', [
+        $login = $this->post('/api/login', [
             'email' => $email,
             'password' => 'qweqwe'
         ]);

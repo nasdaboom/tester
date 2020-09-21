@@ -27,6 +27,7 @@ class UserSeeder extends Seeder
             $user->currencies()->sync(Currencies::currenciesId());
         }
 
+        $user->refresh();
         $items = $user->currencies;
 
         $items[0]->pivot->balance = 1.556;
