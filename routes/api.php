@@ -24,4 +24,5 @@ Route::post('login', 'api\AuthController@login');
 Route::group(['middleware' => 'auth:api', 'namespace' => 'api'], function() {
 
     Route::get('wallet', 'WalletController@getWallet');
+    Route::post('exchange', 'ExchangeController@exchange');
 });
