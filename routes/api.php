@@ -20,3 +20,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('register', 'api\AuthController@register');
 Route::post('login', 'api\AuthController@login');
+
+Route::group(['middleware' => 'auth:api', 'namespace' => 'api'], function() {
+
+    Route::get('wallet', 'WalletController@getWallet');
+});
